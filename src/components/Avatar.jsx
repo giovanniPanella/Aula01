@@ -5,7 +5,7 @@ export function Avatar(props) {
   return (
     <
         img src={props.src} 
-        className={hasBorder ? styles.avatarBorder : styles.avatar} 
+        className={hasBorder ? styles.avatarComBorda : styles.avatar} 
     />
   );
 }
