@@ -1,3 +1,5 @@
+import { Avatar } from './Avatar'
+import { Comentarios } from './Comentarios'
 import styles from './Post.module.css'
 export function Post(props) {
  return(
@@ -6,7 +8,7 @@ export function Post(props) {
         <article className={styles.post}>
             <header>
                 <div className={styles.autor}>
-                     <img src="https://avatars.githubusercontent.com/u/88341211?v=4" className={styles.avatar} />
+                     <Avatar src="https://avatars.githubusercontent.com/u/88341211?v=4" className={styles.avatar} />
                      <div className={styles.autorInfo}>
                             <strong>Giovanni Gilles Panella</strong>
                             <span>Desenvolvedor Full Stack</span>
@@ -31,7 +33,12 @@ export function Post(props) {
                     <button type='submit'>Comentar</button>
                 </footer>
             </form>
+            <div className={styles.ListaComentarios}>
+                <Comentarios/>
+                <Comentarios/>
+                <Comentarios/>
 
+            </div>
         </article>
         
           
