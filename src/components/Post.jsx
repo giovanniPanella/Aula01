@@ -1,30 +1,41 @@
 import { Avatar } from './Avatar'
 import { Comentarios } from './Comentarios'
 import styles from './Post.module.css'
+
+import {format, formatDistanceToNow} from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+
+
 export function Post(props) {
+    const dateFormatada = format(props.publicacao,"d 'de' LLLL 'às' HH:mm'h'",{locale: ptBR})
+    const dataPublicacaoRelativaComAgora = formatDistanceToNow(props.publicacao,{
+        locale: ptBR,
+        addSuffix: true
+    })
  return(
     <>
 
         <article className={styles.post}>
             <header>
                 <div className={styles.autor}>
-                     <Avatar src="https://avatars.githubusercontent.com/u/88341211?v=4" className={styles.avatar} />
+                     <Avatar src={props.autor.avatarUrl} className={styles.avatar} />
                      <div className={styles.autorInfo}>
-                            <strong>Giovanni Gilles Panella</strong>
-                            <span>Desenvolvedor Full Stack</span>
+                            <strong>{props.autor.name}</strong>
+                            <span>{props.autor.cargo}</span>
                      </div>
                 </div>
-                <time title='26-fev-2025 as 14h' dateTime='2025-02-26 14:13:30'>Publicado a 1 hora</time>
+                <time title={dateFormatada} dateTime={props.publicacao.toISOString()}>
+                    {dataPublicacaoRelativaComAgora}
+                </time>
             </header>
             <div className={styles.conteudo}>
-                <p>Fala Galera 👋</p>
-                <p>Acabei de Fazer este post para mostar como fazer a div de conteudo</p>
-                <p>👉 {' '}
-                    <a href="#">gio.desing/fullStack</a></p>
-                <p>
-                    <a href="#">#novoprojeto</a>{' '}
-                    <a href="#"> #tag</a>{' '}
-                </p>
+                {props.conteudo.map(linha=>{
+                    if(linha.type =='paragrafo'){
+                        return <p>{linha.conteudo}</p>
+                    }else if(linha.type == 'link'){
+                        return <p><a href='#'>{linha.conteudo}</a></p>
+                    }
+                })}
             </div>
             <form className={styles.comentarioForm}>
                 <strong>Deixe seu feedback</strong>
