@@ -3,7 +3,7 @@ import styles from './Comentarios.module.css';
 import { Avatar } from './Avatar';
 
 
-export function Comentarios() {
+export function Comentarios({content}) {
   return (
     <div className={styles.comentarios}>
       <Avatar hasBorder={false} src="https://avatars.githubusercontent.com/u/88341211?v=4" />
@@ -19,7 +19,7 @@ export function Comentarios() {
                         <Trash size={24} />
                     </button>
                 </header>
-                <p>Comentário</p>
+                <p>{content}</p>
             </div>
             <footer>
                 <button>

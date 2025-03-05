@@ -22,7 +22,7 @@ const posts = [
     {
       id: 2,
       autor:{
-         avatarUrl: 'https://scontent.fgpb3-1.fna.fbcdn.net/v/t39.30808-1/268336547_4641730392606756_6537603143481061395_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEdUsmnew1l4kLYEVPbPsnVgFeW9r-a2rqAV5b2v5raurkPVMad1TQW6iJvdt2SuRgGIuA9KWcjCa8zTu6FFHhd&_nc_ohc=t-YB5CX4r1MQ7kNvgGsHooC&_nc_oc=Adh8ZuXCKhRIhVay57H0JJSHki1IbH5foEPHGV-hfnTI_Ga-SpGeYx_s2BGeYHyRjsA&_nc_zt=24&_nc_ht=scontent.fgpb3-1.fna&_nc_gid=A696gF1gMhciMXNr4yqPOw3&oh=00_AYDzAOlovzX4Zn76kijcCgR7VOo_CFx2Rr4-z1cGjkdwug&oe=67C66686',
+         avatarUrl: 'https://scontent.fbfh3-3.fna.fbcdn.net/v/t39.30808-1/268336547_4641730392606756_6537603143481061395_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEdUsmnew1l4kLYEVPbPsnVgFeW9r-a2rqAV5b2v5raurkPVMad1TQW6iJvdt2SuRgGIuA9KWcjCa8zTu6FFHhd&_nc_ohc=6JSE3kqLjmQQ7kNvgFdCdKb&_nc_oc=AdjPf6ONmlpIwd2RkmO2VkqauJfDtHO6NQeSNZB0y9JL9h4LxuAmSQOmbTgi3qBpiz8&_nc_zt=24&_nc_ht=scontent.fbfh3-3.fna&_nc_gid=A_i6n8QwxnOKMANG0SByLIb&oh=00_AYC6jCupA2gl-IgTSz6_7ctmylM5h7T97-o8RqZ1WuPhFw&oe=67CE1746',
          name: 'Tatiane Vogler',
          cargo: 'Mae da Aline'
       },
@@ -45,6 +45,7 @@ export function App() {
           {posts.map(post=>{
             return(
               <Post
+                key={post.id}
                 autor={post.autor}
                 conteudo={post.conteudo}
                 publicacao={post.publicacao}
